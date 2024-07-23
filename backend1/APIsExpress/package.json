@@ -1,0 +1,14 @@
+{
+  "name": "apisexpress",
+  "version": "1.0.0",
+  "description": "api express",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
