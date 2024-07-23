@@ -9,21 +9,21 @@ const data = [];
 
 // all users
 app.get("/user", (request, response) => {
-    response.status(200).send(data);
+    response.status(200).send({users: data});
 });
 
 // user by id
 app.get("/user/:id", (request, response) => {
     const id = parseInt(request.params.id);
     const index = data.findIndex(user => user.id == id);
-    response.status(200).send(data[index]);
+    response.status(200).send({user: data[index]});
 });
 
 app.post("/user", (request, response) => {
     const user = request.body;
     user.id = data.length;
     data.push(user);
-    response.status(200).send(`User ${user.id} created.`)
+    response.status(200).send({message: `User ${user.id} created.`})
 });
 
 app.put("/user/:id", (request, response) => {
@@ -31,14 +31,14 @@ app.put("/user/:id", (request, response) => {
     const updatedUser = request.body;
     const index = data.findIndex(user => user.id == id);
     data[index] = updatedUser;
-    response.status(200).send(`User ${id} updated.`);
+    response.status(200).send({message: `User ${id} updated.`});
 });
 
 app.delete("/user/:id", (request, response) => {
     const id = parseInt(request.params.id);
     const index = data.findIndex(user => user.id == id);
     data.slice(index, 1);
-    response.status(200).send(`User ${index} deleted.`)
+    response.status(200).send({message: `User ${index} deleted.`})
 });
 
 app.listen(PORT, () => {
