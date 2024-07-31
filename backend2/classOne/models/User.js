@@ -1,4 +1,5 @@
 const { DataTypes } = require("sequelize");
+const { Grade } = require("./Grade")
 const sequelize = require("../config/database");
 
 const User = sequelize.define("Userr", {
@@ -21,5 +22,7 @@ const User = sequelize.define("Userr", {
         allowNull: false
     }
 });
+
+User.hasMany(Grade);
 
 module.exports = User;
