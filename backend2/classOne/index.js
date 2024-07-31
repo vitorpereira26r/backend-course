@@ -14,7 +14,10 @@ async function connectAndSync() {
             email: "vitorpereira@gmail.com",
             password: "password",
         });
-        console.log("User created successfully.")
+        console.log("User created successfully.");
+
+        const users = await User.findAll();
+        console.log("User's list: ", users.map((u) => u.toJSON()));
     } catch (error) {
         console.log("Error connecting to the database", error);
     } finally {
