@@ -26,7 +26,10 @@ async function connectAndSync() {
         await user.update({ password: "newpassword" });
         console.log("User updated successfully: ", user.toJSON());
 
-        //
+        // DELETE
+        const userToDelete = await User.findByPk(newUser.id);
+        await userToDelete.destroy();
+        console.log("User deleted successfully.")
     } catch (error) {
         console.log("Error connecting to the database", error);
     } finally {
