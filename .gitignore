@@ -1,3 +1,5 @@
 /backend1/APIsExpress/node_modules
 /backend1/ExpressExerciseCRUD/node_modules
 /backend1/SimulatingDB/node_modules
+/backend2/classOne/node_modules
+/backend2/classOne/.env
